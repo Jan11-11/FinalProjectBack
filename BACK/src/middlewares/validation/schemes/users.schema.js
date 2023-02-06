@@ -17,9 +17,9 @@ const UsersSchema = {
 
     addSchema: {
         body: Joi.object({
-            fullname: Joi.string().min(3).max(55).required(),
-            position: Joi.string().min(3).max(55).required(),
-            picture: Joi.string().min(3).max(55).required()
+            fullname: Joi.string().min(3).max(155).required(),
+            position: Joi.string().min(3).max(155).required(),
+            picture: Joi.string().min(3).max(555).required()
         })
     },
 
