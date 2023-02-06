@@ -28,9 +28,9 @@ const UsersSchema = {
             id: ID.required()
         }),
         body: Joi.object({
-            fullname: Joi.string().min(3).max(55),
-            position: Joi.string().min(3).max(55),
-            picture: Joi.string().min(3).max(55),
+            fullname: Joi.string().min(3).max(555),
+            position: Joi.string().min(3).max(555),
+            picture: Joi.string().min(3).max(555),
             status: Joi.string().valid( ...Object.keys(Status))
         }).or(
             'fullname',
