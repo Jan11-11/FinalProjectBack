@@ -36,10 +36,10 @@ export default class UsersController {
 
     static async add(req, res, next) {
         try {
-            const { fullname, position, picture } = req.body;
+            let { fullname, position, picture } = req.body;
             let dirname = "http://34.125.131.155:3000/" + picture;
             picture = dirname;
-            
+
             const user = await UsersServices.add({fullname, position, picture });
 
             SuccessHandlerUtil.handleAdd(res, next, user);
