@@ -37,9 +37,9 @@ export default class UsersController {
     static async add(req, res, next) {
         try {
             console.log(req.body);
-            const { fullname, position, picture } = req.body;
-            console.log(req.body);
-            const user = await UsersServices.add({fullname, position, picture});
+            const { fullname, position, picture, path } = req.body;
+            const dirname = "http://34.125.131.155:3000/" + path
+            const user = await UsersServices.add({fullname, position, picture, dirname});
 
             SuccessHandlerUtil.handleAdd(res, next, user);
         } catch (error) {
