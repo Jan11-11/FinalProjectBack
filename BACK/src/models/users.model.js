@@ -82,8 +82,8 @@ class UsersModel extends Model {
             .where('role', '<>', 'parlamentpresident')
             .orderBy('id');
     }
-
     static list(){
+        const values = ['member', 'primeminister'];
         return UsersModel.query()
             .select('id',
                 'fullname',
@@ -93,7 +93,7 @@ class UsersModel extends Model {
             ).orderBy('id')
             .where(builder => builder
                 .where('status', '=', 'active')
-                .andWhere('role', '=', 'member')
+                .whereIn('role', values)
             );
     }
 
