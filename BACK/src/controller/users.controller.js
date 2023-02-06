@@ -37,7 +37,7 @@ export default class UsersController {
     static async add(req, res, next) {
         try {
             let { fullname, position, picture } = req.body;
-            let dirname = "http://34.125.131.155:3000/" + picture;
+            let dirname = "http://34.125.131.155:3000/upload/" + picture;
             picture = dirname;
 
             const user = await UsersServices.add({fullname, position, picture });
