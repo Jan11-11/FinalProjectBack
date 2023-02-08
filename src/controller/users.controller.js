@@ -78,9 +78,6 @@ export default class UsersController {
     static async addPic(req, res, next) {
         try {
             const { file } = req;
-            // console.log(req,"req");
-            // console.log(file,"req.file");
-
             const { originalname, filename, path } = file;
              const dirname =  'http://34.125.131.155:3000/'+path
             SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
@@ -92,6 +89,9 @@ export default class UsersController {
         try {
             const { id } = req.params;
             console.log(id);
+            if( id === 3 || id === 2 || id === 1){
+                throw new Error ("Can't delete this users")
+            }
             const deletedUser = await UsersServices.delete(id);
 
             SuccessHandlerUtil.handleGet(res, next, deletedUser);
