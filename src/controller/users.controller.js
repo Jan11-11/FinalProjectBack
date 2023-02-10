@@ -84,7 +84,7 @@ export default class UsersController {
             const { file } = req;
             const { originalname, filename, path } = file;
             const dirname =  `${SERVER_HOST}/`+ path
-            SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
+            SuccessHandlerUtil.handleAdd(res, next, { originalname, filename, dirname, success: true  });
         } catch (error) {
             next(error);
         }
