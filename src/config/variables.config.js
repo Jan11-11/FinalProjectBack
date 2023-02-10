@@ -1,4 +1,5 @@
-require('dotenv').config()
+import dotenv from 'dotenv';
+dotenv.config()
 const config = {
     UPLOAD_IMAGES: '../../upload',
     LOCALTUNEL:'yes',
@@ -10,7 +11,6 @@ const config = {
     ONE_WAY_HASH_SECRET: process.env.ONE_WAY_HASH_SECRET,
     DISABLE_REQUEST_LOG: process.env.DISABLE_REQUEST_LOG,
     CORS: process.env.CORS?.split(',') || '*',
-    HOST_OF_SERVER: process.env.SERVER_HOST,
     PSQL: {
         URL: process.env.PSQL_URL,
         PORT: process.env.PSQL_PORT || 5432,

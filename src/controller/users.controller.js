@@ -1,8 +1,7 @@
 // Local Modules
 import { UsersServices } from '../services';
 import { SuccessHandlerUtil } from '../utils';
-import { HOST_OF_SERVER } from '../config/variables.config';
-
+const HOST_OF_SERVER = process.env.SERVER_HOST;
 
 export default class UsersController {
     static async fullList(req, res, next) {
@@ -41,7 +40,6 @@ export default class UsersController {
             let { fullname, position, picture } = req.body;
             let dirname = `${HOST_OF_SERVER}/upload/` + picture;
             picture = dirname;
-
             const user = await UsersServices.add({fullname, position, picture });
 
             SuccessHandlerUtil.handleAdd(res, next, user);
