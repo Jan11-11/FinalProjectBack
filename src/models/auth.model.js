@@ -8,7 +8,7 @@ import Role from '../enum/role.enum';
 class UsersModel extends Model {
     static get idColumn() { return 'id'; }
 
-    static get tableName() { return 'users'; }
+    static get tableName() { return 'login_users'; }
 
     static get jsonSchema() {
         return {

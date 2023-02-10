@@ -11,12 +11,23 @@ function up(pg) {
             table.increments('id').primary();
             table.string('fullname').notNullable();
             table.string('username');
+            table.string('position').notNullable();
+            table.string('picture');
+            table.dateTime('created_at');
+            table.dateTime('updated_at');
+            table.string('role');
+            table.enum('status', ['active', 'passive']).defaultTo('active');
+        })
+        .createTable('login_users', (table) => {
+            table.increments('id').primary();
+            table.string('fullname').notNullable();
+            table.string('username');
             table.string('password');
             table.string('position').notNullable();
             table.string('picture');
             table.dateTime('created_at');
             table.dateTime('updated_at');
-            table.enum('role', ['admin', 'primeminister', 'parlamentpresident' ,'member']).defaultTo('member');
+            table.enum('role', ['admin', 'primeminister', 'parlamentpresident']);
             table.enum('status', ['active', 'passive']).defaultTo('active');
         });
 }

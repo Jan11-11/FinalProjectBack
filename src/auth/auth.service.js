@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UsersModel } from '../models';
+import { AuthModel } from '../models';
 import { ErrorsUtil, CryptoUtil } from '../utils';
 
 import config from '../config/variables.config';
@@ -51,7 +51,7 @@ export default class AuthService {
     }
 
     static async login(username, password) {
-        const user = await UsersModel.findByUsername(username);
+        const user = await AuthModel.findByUsername(username);
 
         if (!user) throw new InputValidationError('Invalid username or password');
         if (!CryptoUtil.isValidPassword(password, user.password)) {

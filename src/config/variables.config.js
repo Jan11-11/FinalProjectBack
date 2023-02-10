@@ -13,8 +13,8 @@ const config = {
         URL: process.env.PSQL_URL,
         PORT: process.env.PSQL_PORT || 5432,
         HOST: process.env.PSQL_HOST || 'localhost',
-        USER: process.env.PSQL_USER || 'postgres',
-        DATABASE: process.env.PSQL_DATABASE || 'postgres',
+        USER: process.env.PSQL_USER || 'myuser',
+        DATABASE: process.env.PSQL_DATABASE || 'mydb',
         PASSWORD: process.env.PSQL_PASSWORD || '1234'
     },
 

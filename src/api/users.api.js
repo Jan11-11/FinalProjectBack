@@ -15,6 +15,8 @@ router.get('/fullList',
 
 router.get('/',
     UsersController.list);
+
+
 router.get('/:id',
     UsersController.getById);
 
@@ -24,6 +26,7 @@ router.post('/upload',
     ImageUploadMiddleware.upload(),
     UsersController.addPic
 );
+
 router.post('/',
     AuthMiddleware.authenticateFor(['admin']),
     UsersValidationMiddleware.validateAddArgs,
@@ -45,9 +48,9 @@ router.delete('/delete/:id',
     UsersValidationMiddleware.validateGetByIdArgs,
     UsersController.delete);
 
-router.get('/assembly', 
-    AuthMiddleware.authenticateFor(['parlamentpresident']),
-    UsersController.getForAssembly
-);
+// router.get('/assembly', 
+//     AuthMiddleware.authenticateFor(['parlamentpresident']),
+//     UsersController.getForAssembly
+// );
 
 export default router;
