@@ -1,5 +1,5 @@
 // Local Modules
-import { UsersModel } from '../models';
+import { UsersModel, AuthModel } from '../models';
 import Event from './events';
 
 import ClientsManager from './clients-manager';
@@ -23,11 +23,11 @@ class MessageHandler {
     static handleClick(client) {
         return async (loginUserId, currentUserid) => {
             const ids =  ClientsManager.registerClient(client);
-            const loginUser = await UsersModel.getById(loginUserId);
+            const loginUser = await AuthModel.getById(loginUserId);
             if(loginUser?.role !== 'primeminister'){
                 return;
             }
-            const user = await UsersModel.getById(ids);
+            const user = await AuthModel.getById(ids);
             if(user.role === 'primeminister') {
                 const { id, fullname , position, picture } = await UsersModel.getById(currentUserid);
                 console.log({ id, fullname , position, picture });

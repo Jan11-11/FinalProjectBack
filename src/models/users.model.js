@@ -74,10 +74,10 @@ class UsersModel extends Model {
         return UsersModel.query().findOne({ username });
     }
 
-
     static  fullList(){
         return  UsersModel.query()
-            .select('*');
+            .select('*')
+            .orderBy('id');
     }
 
     static list(){
