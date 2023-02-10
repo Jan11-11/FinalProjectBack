@@ -17,7 +17,6 @@ async function seed(pg) {
         {
             fullname: 'Նիկոլ Փաշինյան',
             username: 'pashinyan',
-            password: bCrypt.hashSync(PRIMEMINISTER_PASSWORD, bCrypt.genSaltSync(10), null),
             position: 'ՀՀ Վարչապետ',
             picture:'http://34.125.131.155:3000/upload/9345417a-ff94-490c-9bba-cfd61fe1bdc9.jpg',
             created_at: new Date().toISOString(),

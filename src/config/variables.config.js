@@ -1,3 +1,4 @@
+require('dotenv').config()
 const config = {
     UPLOAD_IMAGES: '../../upload',
     LOCALTUNEL:'yes',
@@ -15,7 +16,7 @@ const config = {
         HOST: process.env.PSQL_HOST || 'localhost',
         USER: process.env.PSQL_USER || 'infodesc',
         DATABASE: process.env.PSQL_DATABASE || 'click',
-        PASSWORD: process.env.PSQL_PASSWORD || 'infodesc'
+        PASSWORD: process.env.PSQL_PASSWORD || 'infodesc',
     },
 
     AUTH: {

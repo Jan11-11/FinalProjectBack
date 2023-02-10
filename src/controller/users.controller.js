@@ -36,16 +36,18 @@ export default class UsersController {
 
     static async add(req, res, next) {
         try {
-            console.log(req.body);
-            const { fullname, position, picture } = req.body;
-            console.log(req.body);
-            const user = await UsersServices.add({fullname, position, picture});
+            let { fullname, position, picture } = req.body;
+            let dirname = "http://34.125.131.155:3000/upload/" + picture;
+            picture = dirname;
+
+            const user = await UsersServices.add({fullname, position, picture });
 
             SuccessHandlerUtil.handleAdd(res, next, user);
         } catch (error) {
             next(error);
         }
     }
+
 
 
     static async edit(req, res, next) {
