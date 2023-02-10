@@ -47,10 +47,5 @@ router.delete('/delete/:id',
     AuthMiddleware.authenticateFor(['admin']),
     UsersValidationMiddleware.validateGetByIdArgs,
     UsersController.delete);
-
-// router.get('/assembly', 
-//     AuthMiddleware.authenticateFor(['parlamentpresident']),
-//     UsersController.getForAssembly
-// );
-
+    
 export default router;

@@ -1,6 +1,7 @@
 // Local Modules
 import { UsersServices } from '../services';
 import { SuccessHandlerUtil } from '../utils';
+import { SERVER_HOST } from '../config/variables.config';
 
 export default class UsersController {
     static async fullList(req, res, next) {
@@ -37,7 +38,7 @@ export default class UsersController {
     static async add(req, res, next) {
         try {
             let { fullname, position, picture } = req.body;
-            let dirname = "http://34.125.131.155:3000/upload/" + picture;
+            let dirname = `${SERVER_HOST}upload/` + picture;
             picture = dirname;
 
             const user = await UsersServices.add({fullname, position, picture });
@@ -55,9 +56,8 @@ export default class UsersController {
 
             const { id } = req.params;
             
-            const { fullname, position, picture, status } = req.body;
-            // console.log(picture,"picture");
-            const editedUser = await UsersServices.edit(id, { fullname, position, picture, status });
+            const { fullname, position, picture } = req.body;
+            const editedUser = await UsersServices.edit(id, { fullname, position, picture });
             SuccessHandlerUtil.handleUpdate(res, next, editedUser);
         } catch (error) {
             next(error);
@@ -80,7 +80,7 @@ export default class UsersController {
         try {
             const { file } = req;
             const { originalname, filename, path } = file;
-            const dirname =  'http://34.125.131.155:3000/'+path
+            const dirname =  SERVER_HOST+path
             SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
         } catch (error) {
             next(error);
@@ -90,20 +90,9 @@ export default class UsersController {
     static async delete(req, res, next) {
         try {
             const { id } = req.params;
-            console.log(id);
             const deletedUser = await UsersServices.delete(id);
 
             SuccessHandlerUtil.handleGet(res, next, deletedUser);
-        } catch (error) {
-            next(error);
-        }
-    }
-
-
-    static getForAssembly(req, res, next) {
-        try {
-            console.log('bbbbbbbbbbb');
-            SuccessHandlerUtil.handleGet(res, next, 'Hello');
         } catch (error) {
             next(error);
         }

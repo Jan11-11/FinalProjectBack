@@ -3,9 +3,6 @@ import Joi from 'joi';
 
 //Local MOdules
 import { ID } from './type';
-import Status from '../../../enum/status.enum';
-
-
 
 const UsersSchema = {
 
@@ -17,9 +14,9 @@ const UsersSchema = {
 
     addSchema: {
         body: Joi.object({
-            fullname: Joi.string().min(3).max(55).required(),
-            position: Joi.string().min(3).max(55).required(),
-            picture: Joi.string().min(3).max(55).required()
+            fullname: Joi.string().min(3).max(155).required(),
+            position: Joi.string().min(3).max(155).required(),
+            picture: Joi.string().min(3).max(755).required()
         })
     },
 
@@ -28,15 +25,13 @@ const UsersSchema = {
             id: ID.required()
         }),
         body: Joi.object({
-            fullname: Joi.string().min(3).max(55),
-            position: Joi.string().min(3).max(55),
-            picture: Joi.string().min(3).max(55),
-            status: Joi.string().valid( ...Object.keys(Status))
+            fullname: Joi.string().min(3).max(155),
+            position: Joi.string().min(3).max(155),
+            picture: Joi.string().min(3).max(755),
         }).or(
             'fullname',
             'position',
-            'picture',
-            'status'
+            'picture'
         )
     },
     

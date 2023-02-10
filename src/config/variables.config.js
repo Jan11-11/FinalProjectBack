@@ -10,6 +10,7 @@ const config = {
     ONE_WAY_HASH_SECRET: process.env.ONE_WAY_HASH_SECRET,
     DISABLE_REQUEST_LOG: process.env.DISABLE_REQUEST_LOG,
     CORS: process.env.CORS?.split(',') || '*',
+    SERVER_HOST: process.env.SERVER_HOST,
     PSQL: {
         URL: process.env.PSQL_URL,
         PORT: process.env.PSQL_PORT || 5432,
