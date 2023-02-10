@@ -2,6 +2,8 @@
 import { UsersServices } from '../services';
 import { SuccessHandlerUtil } from '../utils';
 import { SERVER_HOST } from '../config/variables.config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default class UsersController {
     static async fullList(req, res, next) {
