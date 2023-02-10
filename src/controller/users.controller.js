@@ -1,6 +1,4 @@
 // Local Modules
-import dotenv from 'dotenv';
-dotenv.config();
 import { UsersServices } from '../services';
 import { SuccessHandlerUtil } from '../utils';
 import { SERVER_HOST } from '../config/variables.config';
@@ -41,7 +39,7 @@ export default class UsersController {
     static async add(req, res, next) {
         try {
             let { fullname, position, picture } = req.body;
-            let dirname = `${SERVER_HOST}/upload/` + picture;
+            let dirname = "http://34.125.131.155:3000/upload/" + picture;
             picture = dirname;
 
             const user = await UsersServices.add({fullname, position, picture });
@@ -83,7 +81,7 @@ export default class UsersController {
         try {
             const { file } = req;
             const { originalname, filename, path } = file;
-            const dirname =  `${SERVER_HOST}/`+ path
+            const dirname =  "http://34.125.131.155:3000/upload/" + path
             SuccessHandlerUtil.handleAdd(res, next, { originalname, filename, dirname, success: true  });
         } catch (error) {
             next(error);
