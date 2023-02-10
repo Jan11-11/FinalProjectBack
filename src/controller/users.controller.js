@@ -78,7 +78,7 @@ export default class UsersController {
         try {
             const { file } = req;
             const { originalname, filename, path } = file;
-             const dirname =  'http://34.125.131.155:3000/'+path
+            const dirname =  'http://34.125.131.155:3000/'+path
             SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
         } catch (error) {
             next(error);
