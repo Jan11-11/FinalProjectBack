@@ -1,9 +1,10 @@
 // Local Modules
+import dotenv from 'dotenv';
+dotenv.config();
 import { UsersServices } from '../services';
 import { SuccessHandlerUtil } from '../utils';
 import { SERVER_HOST } from '../config/variables.config';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 export default class UsersController {
     static async fullList(req, res, next) {
@@ -82,7 +83,7 @@ export default class UsersController {
         try {
             const { file } = req;
             const { originalname, filename, path } = file;
-            const dirname =  SERVER_HOST+path
+            const dirname =  `${SERVER_HOST}`+path
             SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
         } catch (error) {
             next(error);
