@@ -77,13 +77,14 @@ export default class UsersController {
     static async addPic(req, res, next) {
         try {
             const { file } = req;
-
             const { originalname, filename, path } = file;
-            SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, path, success: true  });
+             const dirname =  'http://34.125.131.155:3000/'+path
+            SuccessHandlerUtil.handleAdd(res, next, { originalname,filename, dirname, success: true  });
         } catch (error) {
             next(error);
         }
     }
+
     static async delete(req, res, next) {
         try {
             const { id } = req.params;
