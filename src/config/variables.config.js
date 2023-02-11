@@ -1,5 +1,6 @@
-import dotenv from 'dotenv';
-dotenv.config()
+// import dotenv from 'dotenv';
+require("dotenv").config()
+console.log(process.env.PSQL_USER,'asasd');
 const config = {
     UPLOAD_IMAGES: '../../upload',
     LOCALTUNEL:'yes',
@@ -14,10 +15,10 @@ const config = {
     PSQL: {
         URL: process.env.PSQL_URL,
         PORT: process.env.PSQL_PORT || 5432,
-        HOST: process.env.PSQL_HOST || 'localhost',
-        USER: process.env.PSQL_USER || 'infodesc',
-        DATABASE: process.env.PSQL_DATABASE || 'click',
-        PASSWORD: process.env.PSQL_PASSWORD || 'infodesc',
+        HOST: process.env.PSQL_HOST,
+        USER: process.env.PSQL_USER,
+        DATABASE: process.env.PSQL_DATABASE,
+        PASSWORD: process.env.PSQL_PASSWORD,
     },
 
     AUTH: {
