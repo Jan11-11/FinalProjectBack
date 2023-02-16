@@ -55,7 +55,7 @@ export default class AuthMiddlaware {
 
     static authenticateForSocket(client, res, next) {
         try {
-            const accessToken = client.handshake.headers.auth_token;
+            const accessToken = client.handshake.headers.authorization;
 
             if (!accessToken) throw new UnauthorizedError('111');
     
